@@ -1,7 +1,7 @@
 # **Introduction to Matrix Algebra**
 
 
-## System of Linear Equations
+## Applications of Matricies: System of Linear Equations
 ---
 In many fields of engineering, math, and science, linear equations are common and important. As you remember from high school algebra class, a linear equation is presented in the form *ax + by = c*. Often it is necessary to obtain a solution to a *system of linear equations* which is more than one equation simultaneously. An example of this is:
 
@@ -22,6 +22,7 @@ This system of equations can be elegantly represented using a matrix:
 We will show the how to use matricies to solve systems of equations later in this article after some properties and techniques are introduced.
 
 
+
 ## Matrix
 ---
 A **matrix** (plural **matricies**) is simply a collection of numbers arranged in rectangular form. A matrix with *m* rows and *n* columns is called an *m-by-n matrix* and can be written as follows:  
@@ -35,6 +36,14 @@ A *1-by-n matrix* is called a **row vector**:
 Similarly, an *m-by-1 matrix* is called a **column vector**:
 
 ![Column Vector](column_vector.png "Column Vector")
+
+An *n-by-n matrix* is called a **square matrix**.
+
+A *1-by-1 matrix* is known as a **scalar** and is simply written as a traditional number.
+
+## Matrix Operations
+---
+In this section we define some of the more common 
 
 
 
