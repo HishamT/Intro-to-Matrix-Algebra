@@ -2,7 +2,7 @@
 
 
 ## Applications of Matricies: System of Linear Equations
----
+
 In many fields of engineering, math, and science, linear equations are common and important. As you remember from high school algebra class, a linear equation is presented in the form *ax + by = c*. Often it is necessary to obtain a solution to a *system of linear equations* which is more than one equation simultaneously. An example of this is:
 
 >2x + 4y = 18  
@@ -21,13 +21,15 @@ This system of equations can be elegantly represented using a matrix:
 
 We will show the how to use matricies to solve systems of equations later in this article after some properties and techniques are introduced.
 
-
+This is also just one application of matrix.
 
 ## Matrix
----
+
 A **matrix** (plural **matricies**) is simply a collection of numbers arranged in rectangular form. A matrix with *m* rows and *n* columns is called an *m-by-n matrix* and can be written as follows:  
 
 ![Matrix](m_by_n_Matrix.png "Matrix")
+
+The number of rows and columns are also known as the **dimensions** of the matrix
 
 A *1-by-n matrix* is called a **row vector**:
 
@@ -37,13 +39,32 @@ Similarly, an *m-by-1 matrix* is called a **column vector**:
 
 ![Column Vector](column_vector.png "Column Vector")
 
-An *n-by-n matrix* is called a **square matrix**.
+A matrix where the number of rows equals the number of columns, an *n-by-n matrix*, is called a **square matrix**.
 
 A *1-by-1 matrix* is known as a **scalar** and is simply written as a traditional number.
 
+We will introduce more types of matricies later in this article.
+
 ## Matrix Operations
----
-In this section we define some of the more common 
+
+Now that we have introduced matricies, we will explore the types of operations we can perform on them.
+
+We can extend the idea of addition of numbers to matricies. Two matricies are added together by simply adding the elements of one matrix to the corresponding elements of another matrix.
+
+Let's take the addition of matricies **A** and **B** as an example:
+![Matrix Addition](matrix_addition.png "Matrix Addition")  
+
+
+It is important to note the following properties for matrix addition:
+
+* Matrix addition is only possible if the dimensions of the matricies are the same. The addition of two matricies of different dimensions is undefined.
+* Matrix addition is commutative: **A** + **B** = **B** + **A**
+* Matrix addition is associative: (**A** + **B**) + **C** = **A** + (**B** + **C**)
+
+
+
+
+
 
 
 
