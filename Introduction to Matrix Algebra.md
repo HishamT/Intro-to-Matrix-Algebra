@@ -51,7 +51,8 @@ Now that we have introduced matricies, we will explore the types of operations w
 
 We can extend the idea of addition of numbers to matricies. Two matricies are added together by simply adding the elements of one matrix to the corresponding elements of another matrix.
 
-Let's take the addition of matricies **A** and **B** as an example:
+Let's take the addition of matricies **A** and **B** as an example:  
+
 ![Matrix Addition](matrix_addition.png "Matrix Addition")  
 
 
