@@ -14,9 +14,9 @@ Let's take a *2-by-2* matrix **A** as an example:
 
 ![2-by-2 Matrix](A_matrix.png "2-by-2 Matrix")
 
-The number of rows and columns are also known as the **dimensions** of the matrix
+The number of rows and columns are also known as the **dimensions** of the matrix.
 
-When referring to an element inside a matrix (**A**), we denote the element at row *i* and column *j* as *a*<sub>*i*,*j*</sub> 
+When referring to an element inside a matrix (**A**), we denote the element at row *i* and column *j* as *a*<sub>*i*,*j*</sub>. 
 
 A *1-by-n matrix* is called a **row vector**:
 
@@ -85,12 +85,12 @@ Let's do this with some numbers:
 
 ![Matrix Multiplication](matrix_multiplication_example.png "Matrix Multiplication")
 
-As you can see, matrix multiplication is tedious and impractical to perform manually and such a task is better suited for a computer than a human. Later on in this article we will see how this operation is done in Python using the NumPy library. 
+As you can see, matrix multiplication is tedious and impractical to perform manually, so we require the use of a computer. Later on in this article, we will see how this operation is done in Python using the NumPy library. 
 
 Matrix multiplication has the following properties:
 * Matrix multiplication is associative: (**A** **B**) **C** = **A** (**B** **C**)
 * Matrix multiplication is distributive: **A**(**B** + **C**) = **A** **B** + **A** **C**
-* And most importantly remember that matrix multiplication **IS NOT** commutative!
+* And most importantly, remember that matrix multiplication **IS NOT** commutative!
 
 There exists a special kind of square matrix knows as the **identity matrix**. This is a square matrix that contains ones on the main diagonal and zeros everywhere else. Since an identity matrix is necessarily sqaure (*n-by-n*), we need only one number (*n*) to specify its dimensions. We denote a general identity matrix by **I** and an *n-by-n* identity matrix as **I**<sub>**n**</sub>. It looks like this:
 
@@ -102,7 +102,7 @@ Multiplication by an identity matrix yields the original matrix and this is one 
 Another special matrix we will consider is the **inverse matrix** of a general matrix **A** denoted as **A**<sup>-1</sup>. This inverse matrix is only defined for square matrices and bears the special property:
 * **A** **A**<sup>-1</sup> = **A**<sup>-1</sup> **A** = **I**
 
-However, generating an inverse matrix for **A** is a fairly complex task that merits its own article and consequently is beyond the scope of this introductory lesson on matrix algebra. Often times courses in linear algebra devote one full lecture solely to calculating the inverse of a matrix. As with matrix multiplication, the calculation of an inverse matrix is not practical to be performed by a human and thus the use of a computer is necessary in order to obtain the matrix inverse. We will see how to do this Python later in this article.
+However, generating an inverse matrix for **A** is a fairly complex task that is beyond the scope of this introductory lesson on matrix algebra and merits its own dedicated article. Often times, courses in linear algebra devote one full lecture solely to calculating the inverse of a matrix. As with matrix multiplication, the calculation of an inverse matrix is not practical to be performed by a human and thus the use of a computer is necessary. We will see how to do this in Python later in this article.
 
 ## Matrix Algebra in Python
 
