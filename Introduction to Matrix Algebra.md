@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A **matrix** is an ordered collection of numbers that facilities mathematical operations and is used in a number of fields in science, mathematics, and engineering. Common fields in which **matrices** (plural of matrix) and their applications are prevalent are: solving systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, matrices are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. In game development, matrices are used to animate things that change on the players screen. There are of course many more applications but before we begin the study of a matrix, we will first define some terms.
+A **matrix** is an ordered collection of numbers that facilities mathematical operations and is used in a number of fields in science, mathematics, and engineering. Common fields in which **matrices** (plural of matrix) and their applications are prevalent are: solving systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, matrices are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. Computer scientists and software engineers use matrices in fields like game development and cyber security. There are of course many more applications but before we begin the study of a matrix, we will first define some terms.
 
 ## Matrix
 
@@ -106,7 +106,7 @@ However, generating an inverse matrix for **A** is a fairly complex task that is
 
 ## Matrix Algebra in Python
 
-When dealing with large matrices, the use of a computer is necessary to carry out the operations mentioned in the previous section. There are many software packages available that facilitate the maniuplation of a matrix as well as libraries that exist for common computer languages which allow us to perfomr the necessary computations. The main langauge we will be using to work with a matrix is Python (Python3) and specifically the NumPy library. We assume you are familiar with basic Python syntax and how to write Python code. We also assume you know how to download and install libraries using the `pip` command.   
+When dealing with large matrices, the use of a computer is necessary to carry out the operations mentioned in the previous section. There are many software packages available that facilitate the maniuplation of a matrix as well as libraries that exist for common computer languages which allow us to perform the necessary computations. The main language we will be using to work with a matrix is Python (Python3) and specifically the NumPy library. We assume you are familiar with basic Python syntax and how to write Python code. We also assume you know how to download and install libraries using the `pip` command.   
 
 In order to use NumPy, we must first import it:
 ```python
@@ -153,14 +153,12 @@ A = np.array([[4,6,3], [1,3,2]])
 B = np.array([[1,4],[5,10],[8,12]])
 C = np.matmul(A,B)
 print(C)
-
 '''
 This will output:
 [[ 58 112]
  [ 32  58]]
  Same as before.
 '''
-
 ```
 The python function to find the inverse of a matrix is located in the `linalg` submodule of numpy. The following code demonstrates the inversion of a matrix:
 
@@ -178,7 +176,7 @@ This will output:
 '''
 ```
 
-## Applications of matrices: System of Linear Equations
+## Applications of Matrices: System of Linear Equations
 
 In many fields of engineering, math, and science, linear equations are prevalent and important. As you remember from high school algebra class, a linear equation is presented in the form *ax + by = c*. Often it is necessary to obtain a solution to a *system of linear equations* which is more than one equation simultaneously. An example of this is:
 
@@ -192,13 +190,142 @@ In general, you can have a system of infintely many equations as long as you hav
 x + 2y - z = -1  
 5x + 7y - 4z = 9
 
+We can first break this down to look like this:
+
+![Equation 1](equation1.png "Equation 1")
+
 This system of equations can be elegantly represented using a matrix:
 
  ![Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/Matrix_1.png "matrix")
 
-We will show the how to use matrices to solve systems of equations later in this article after some properties and techniques are introduced.
+Systems of linear equations are written in the form **A** **x** = **b**.
 
-This is also just one application of matrix.
+In this case:
+
+![A](A_matrix_linear_equations.png "A")
+
+![x](x_vector.png "x")
+
+![b](b_vector.png "b")
+
+To solve this, we first generate the inverse matrix **A**<sup>-1</sup> and then multiply both sides of the equation, *on the left*, by **A**<sup>-1</sup>. Remember, matrix multiplication is **not** commutative.
+
+![Ax=b](eq1.png "Ax=b")
+
+![Ax=b](eq2.png "Ax=b")
+
+![Ax=b](eq3.png "Ax=b")
+
+Let's solve this in Python:
+```python
+import numpy as np
+A = np.array([[2,6,1], [1,2,-1], [5,7,-4]]) # input matrix A
+b = np.array([7,-1,9]) # input matrix b
+AInv = np.linalg.inv(A) # calculate inverse matrix of A
+x = np.matmul(AInv, b) # solve system of equations by left-multiplying b by A-inverse
+print(x) # print result
+
+# This will output [10 -3 5]
+```
+Please note that the solution to a linear system only works if the equations are *linearly independent*. That means that no equation is a multiple, or a combination of, any other equation. Trying to solve this set of equations:
+>2x + 6y + z = 7  
+4x + 12y +2z = 14   
+5x + 7y - 4z = 9
+
+will produce non-sense values as the equations in this system or not linearly independent; the second equation is two-times the first. Determining whether or not a system is linearly independent is outside the scope of this lesson. For now, we will assume they are.
+
+## Applications of Matrices: Data Encryption
+
+Another common application of matrix algebra is in the cyber security domain where data can be structured in a matrix and encryption algorithms are used to generate a new matrix with encrypted data. After the data are transferred, decryption algorithms are used to recover the original data from the encrypted matrix. To show how this is done, we present an encryption technique that is based on matrix multiplication to generate an encrypted matrix. While this algorithm is primitive and is not suited for real-world applications, it does show the importance of matrices in the cyber security field.
+
+In order to see how this works, we will first define the encryption matrix **E** which is a square matrix consisting of random numbers and the corresponding decryption matrix **D** which is simply the inverse of **E**. Using **E** to encrypt something and **D** to decrypt takes advantage of the property **D** **E** = **I**. To encrypt a matrix **x**, we generate matrix **y** by left-multiplying **E**. To recover the original matrix **x** we left-multiply **y** by **D**.
+
+![Decryption](y_matrix.png "Decryption")  
+![Encryption](x_matrix.png "Encryption")
+
+Suppose we wish to encrypt the string "*hello world*". We must first define **E** and **D**:
+
+![Encryption Key](encryption_key.png "Encryption Key")  
+![Decryption Key](decryption_key.png "Decryption Key")
+
+Note that the matrix can be of any size, as long as it is square.
+
+Remember that in order to multiply two matrices, the column-dimension of the left matrix must match the row-dimension of the right matrix. Therefore in order to multiply a matrix by the *2-by-2* matrix **E**, we need a *2-by-n* matrix. Let's first convert the string into a row-vector
+
+![Hello World](string_row_vector.png "Hello World")
+
+Since the string *hello world* contains eleven characters (including the space) and we need a *2-by-n* matrix, so we break the string down into two rows and distribute the charachters as evenly as possible. We pad with 0's if we need more characters.
+
+![Hello World](hello_matrix.png "Hello World")
+
+We can convert a string into a row-vector of numbers where each number corresponds to the [unicode](https://home.unicode.org/) value of the character. To obtain the unicode value of a character ('a' for example) in python use `ord('a')`. To convert from unicode (number *x* for example) to character use `chr(x)`.
+
+![Hello World](hello_number_matrix.png "Hello World")
+
+After encrypting it with **E**, we get:
+
+![Encrypted Matrix](encrypted_matrix.png "Encrypted Matrix")
+
+Which corresponds to unusual characters if converted from unicode to character.
+
+Multiplying **y** with **D**, will give back the original **x** matrix.
+
+Lets do this in Python.
+
+```python
+import numpy as np
+
+E = np.array([[9,3],[2,1]]) # encryption matrix
+D = np.linalg.inv(E) # decryption matrix
+x = np.array([[ord('h'), ord('e'), ord('l'), ord('l'), ord('o'), ord(' ')],
+[ord('w'), ord('o'),ord('r'), ord('l'), ord('d'), 0]])
+# "hello world" converted to unicode
+y = np.matmul(E,x) # encryption
+q = np.matmul(D,y) # decryption
+
+print(q) # output q
+
+'''
+This outputs:
+
+[[1.04000000e+02 1.01000000e+02 1.08000000e+02 1.08000000e+02
+  1.11000000e+02 3.20000000e+01]
+ [1.19000000e+02 1.11000000e+02 1.14000000e+02 1.08000000e+02
+  1.00000000e+02 2.84217094e-14]]
+'''
+```
+
+You should notice that the output matrix **q** matches the original matrix **x**. Since the decryption matrix has decimals in it, the output will be generated as floating point values as opposed to integers. If you notice, the last value is a number on the order of 10<sup>-14</sup> which is effectively 0. In order to convert **q** back to characters, we have to use the `chr` command. Unfortunately, it only accepts integer values, therefore we must cast the elements from floating point to integer. Let's convert element `q[0][0]` as an example, we convert it to an integer by surrounding it with `int` like this `int(q[0][0])`. There is a problem here however, because if you print `q[0][0]` you will get the value `103.99999997` which is effectively `104` but if you cast it directly, Python will truncate the decimal part, and incorrectly return `103`. To fix this, we simply round the value to the nearest whole number before we convert it by using `round`. Putting all this together, to recover a character we get `chr(int(round(q[0][0])))`. Let's extend the code above to convert all the number in **q** back to the original characters and place them in a list for printing.
+
+
+```python
+import numpy as np
+
+E = np.array([[9,3],[2,1]]) # encryption matrix
+D = np.linalg.inv(E) # decryption matrix
+x = np.array([[ord('h'), ord('e'), ord('l'), ord('l'), ord('o'), ord(' ')],
+[ord('w'), ord('o'),ord('r'), ord('l'), ord('d'), 0]])
+# "hello world" converted to unicode
+y = np.matmul(E,x) # encryption
+q = np.matmul(D,y) # decryption
+
+print(q) # output q
+
+'''
+This outputs:
+
+[[1.04000000e+02 1.01000000e+02 1.08000000e+02 1.08000000e+02
+  1.11000000e+02 3.20000000e+01]
+ [1.19000000e+02 1.11000000e+02 1.14000000e+02 1.08000000e+02
+  1.00000000e+02 2.84217094e-14]]
+'''
+
+
+```
+
+
+
+
 
 
 
