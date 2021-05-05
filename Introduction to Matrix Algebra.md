@@ -100,17 +100,17 @@ A *3-by-3* identity matrix:
 
 ![Identity Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/identity_matrix_3.png "Identity Matrix")
 
-Multiplication by an identity matrix yields the original matrix and this is one of the few times where matrix multplication is commutative!
+Multiplication by an identity matrix yields the original matrix. This is one of the few times where matrix multplication is commutative!
 * **A** **I** = **I** **A** = **A**
 
 Another special matrix we will consider is the **inverse matrix** of a general matrix **A** denoted as **A**<sup>-1</sup>. This inverse matrix is only defined for square matrices and bears the special property:
 * **A** **A**<sup>-1</sup> = **A**<sup>-1</sup> **A** = **I**
 
-However, generating an inverse matrix for **A** is a fairly complex task that is beyond the scope of this introductory lesson on matrix algebra and merits its own dedicated article. Often times, courses in linear algebra devote one full lecture solely to calculating the inverse of a matrix. As with matrix multiplication, the calculation of an inverse matrix is not practical to be performed by a human and thus the use of a computer is necessary. We will see how to do this in Python later in this article.
+However, generating an inverse matrix for **A** is a fairly complex task that is beyond the scope of this introductory lesson on matrix algebra. The procedure for computing an inverse matrix merits its own dedicated article. Often times, courses in linear algebra devote one full lecture solely to calculating the inverse of a matrix. As with matrix multiplication, manually performing the calculation of an inverse matrix is not practical, therefore we resort to using a computer to perform this computation for us. We will see how to do this in Python later in this article.
 
 ## Matrix Algebra in Python
 
-When dealing with large matrices, the use of a computer is necessary to carry out the operations mentioned in the previous section. There are many software packages available that facilitate the maniuplation of a matrix as well as libraries that exist for common computer languages which allow us to perform the necessary computations. The main language we will be using to work with a matrix is Python (Python3) and specifically the NumPy library. We assume you are familiar with basic Python syntax and how to write Python code. We also assume you know how to download and install libraries using the `pip` command.   
+When dealing with large matrices, the use of a computer is necessary to carry out the operations mentioned in the previous section. There are many software packages available that facilitate matrix operations. For many common computer languages, libraries exist that allow us to work with matrices efficiently. The language we will be using is Python (Python3) and the NumPy library. We assume you are familiar with basic Python syntax and how to write Python code. We also assume you know how to download and install libraries using the `pip` command.   
 
 In order to use NumPy, we must first import it:
 ```python
@@ -133,7 +133,7 @@ A = np.array([[1,2,3],[4,5,6],[7,8,9]])
 ![Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_A.png "Matrix")  
 Note that a 2D matrix is simply represented as an array that contains other arrays as elements.
 
-Accessing the element at row *i* and column *j* is done by writing `A[i][j]`. However please keep in mind that while in mathematics counting starts at `1`, in computer science counting starts at `0`. Therefore the first element in matrix **A** is at `A[0][0]` *not* `A[1][1]`
+Accessing the element at row *i* and column *j* is done by writing `A[i][j]`. However please keep in mind that while in mathematics counting starts at `1`, in computer science counting starts at `0`. Therefore the first element in matrix **A** is `A[0][0]` *not* `A[1][1]`
 
 Adding/subtracting two matrices uses the same syntax as adding two variables: 
 
@@ -147,7 +147,7 @@ Scalar multiplication (assuming *k* is a number):
 B = k*A
 ```
 
-To multiply two matrices, we do not use the * operator as we did in scalar multiplication as that would just do element-wise multiplication. We write `np.matmul(A,B)` to perform the matrix multiplication as described earlier. Remember to make sure the column-dimension of matrix **A** is the same as the row-dimension as matrix **B** or you will get an error.
+To multiply two matrices, we do not use the * operator as we did in scalar multiplication because that would just perform element-wise multiplication. We write `np.matmul(A,B)` to compute matrix multiplication as described earlier. Remember to make sure the column dimension of matrix **A** is the same as the row dimension as matrix **B** or you will get an error.
 
 Let's actually do the example from the previous section:
 
@@ -164,13 +164,13 @@ This will output:
  Same as before.
 '''
 ```
-The python function to find the inverse of a matrix is located in the `linalg` submodule of numpy. The following code demonstrates the inversion of a matrix:
+The python function to find the inverse of a matrix is located in the `linalg` submodule of NumPy. The following code demonstrates the inversion of a matrix:
 
 ```python
 import numpy as np
 A = np.array([[1,3,2],[4,5,6],[8,7,9]])
-A_inv = np.linalg.inv(a)
-print(A_inv)
+AInv = np.linalg.inv(a)
+print(AInv)
 
 '''
 This will output: 
@@ -182,13 +182,13 @@ This will output:
 
 ## Applications of Matrices: System of Linear Equations
 
-In many fields of engineering, math, and science, linear equations are prevalent and important. As you remember from high school algebra class, a linear equation is presented in the form *ax + by = c*. Often it is necessary to obtain a solution to a *system of linear equations* which is more than one equation simultaneously. An example of this is:
+In many fields of engineering, math, and science, linear equations are ubiquitous and important. As you learned in algebra class, a linear equation is presented in the form *ax + by = c*. A *system of linear equations* is a collection of linear equations. An example of this is:
 
 >2x + 4y = 18  
 4x - 2y = 16
 
 As you learned in algebra class, this system of two linear equations can be solved by the elimination technique to yield a solution of *x = 5* and *y = 2*.  
-In general, you can have a system of infintely many equations as long as you have as many equations as unknowns. Writing a system of equations as we have shown previously is fine for a small number of equations but will become awkward and hard to read as the number of equations increases. To solve this problem, we can write systems of equations compactly using a ***matrix***. To illustrate this, let's take the following system as an example:
+In general, you can have a system of infintely many equations as long as you have as many equations as unknowns. Writing a system of equations as we have shown previously is fine for a small number of equations, but will become awkward and hard to read as the number of equations increases. To solve this problem, we can write systems of equations compactly using a ***matrix***. To illustrate this, let's take the following system as an example:
 
 >2x + 6y + z = 7  
 x + 2y - z = -1  
@@ -197,6 +197,8 @@ x + 2y - z = -1
 We can first break this down to look like this:
 
 ![Equation 1](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/equation1.png "Equation 1")
+
+Take note of the patterns in the alignment of the numbers.
 
 This system of equations can be elegantly represented using a matrix:
 
@@ -329,7 +331,7 @@ l = []
 
 for i in range(0, 2):
     for j in range (0, 6):
-        if(round(q[i][j]) == 0):
+        if(round(q[i][j]) == 0): # do not include padded zeros
             break
         l.append(chr(int(round(q[i][j]))))
 print(l)
@@ -341,7 +343,7 @@ This outputs:
 '''
 ```
 
-So here we conclude a basic example on how matrices can be used to encrypt and decrypt data.
+Here we conclude a basic example on how matrices can be used to encrypt and decrypt data.
 
 
 
