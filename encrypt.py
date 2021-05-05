@@ -28,3 +28,9 @@ for i in range(0, 2):
             break
         l.append(chr(int(round(q[i][j]))))
 print(l)
+
+'''
+This outputs:
+
+['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
+'''

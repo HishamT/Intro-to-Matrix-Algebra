@@ -346,24 +346,51 @@ This outputs:
 Here we conclude a basic example on how matrices can be used to encrypt and decrypt data.
 
 
+## Exercises
 
+1: Add the following two matrices **A** and **B** and multiply the result by three. Print your results.
 
+```python
+import numpy as np
 
+A = np.array([[3,7],[1,8]])
+B = np.array([[4,5],[9,2]])
 
+# Add the two matrices and then multiply by three.
+# Print your results.
+```
 
+2: Given the following system of equations:
 
+> 3w + 2x + y + 4z = 66  
+> w + 4x + 2y + 3z = 72  
+> 4w + x + 5y + z = 89  
+w + x + y + z = 29
 
+Complete the following Python script to solve the system of equations for *[w, x, y, z]* and print your results.
 
+```python
+import numpy as np
 
+# Solve system of linear equations here...
+```
 
+3: A string *x* has been encrypted using the following key:
 
+![Encryption Key](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/Q2Encryption_Key.png "Encryption Key")
 
+The following encrypted string of random characters was generated:
 
+```python
+['ҿ', 'Ө', 'ѷ', 'Ӟ', 'Ͳ', 'Α', '̀', 'Ί']
+```
 
+Complete the following Python script to decrypt it and print your results.
 
+```python
+import numpy as np
+# Use this list when converting the encrypted characters to unicode.
+s = ['ҿ', 'Ө', 'ѷ', 'Ӟ', 'Ͳ', 'Α', '̀', 'Ί'] # DO NOT copy and paste the characters.
 
-
-
-
-
-
+# Decrypt the string here...
+```
