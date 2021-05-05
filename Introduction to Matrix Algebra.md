@@ -2,17 +2,17 @@
 
 ## Introduction
 
-A **matrix** is an ordered collection of numbers that facilities mathematical operations and is used in a number of fields in science, mathematics, and engineering. Common fields in which **matrices** (plural of matrix) and their applications are prevalent are: solving systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, matrices are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. Computer scientists and software engineers use matrices in fields like game development and cyber security. There are of course many more applications but before we begin the study of a matrix, we will first define some terms.
+A **matrix** is an ordered collection of numbers that facilitates mathematical operations that are necessary in a number of fields in science, mathematics, and engineering. Common fields in which **matrices** (plural of matrix) and their applications are prevalent are: solving systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, matrices are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. Computer scientists and software engineers use matrices in fields like game development and cyber security. These are just a few applications. Before we begin the study of a matrix, we must first define some important terms.
 
 ## Matrix
 
 A **matrix** (plural **matrices**) is simply a collection of numbers arranged in rectangular form. A matrix with *m* rows and *n* columns is called an *m-by-n matrix* and can be written as follows:  
 
-![Matrix](m_by_n_Matrix.png "Matrix")
+![Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/m_by_n_Matrix.png "Matrix")
 
 Let's take a *2-by-2* matrix **A** as an example:
 
-![2-by-2 Matrix](A_matrix.png "2-by-2 Matrix")
+![2-by-2 Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/A_matrix.png "2-by-2 Matrix")
 
 The number of rows and columns are also known as the **dimensions** of the matrix.
 
@@ -20,11 +20,11 @@ When referring to an element inside a matrix (**A**), we denote the element at r
 
 A *1-by-n matrix* is called a **row vector**:
 
-![Row Vector](row_vector.png "Row Vector")
+![Row Vector](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/row_vector.png "Row Vector")
 
 Similarly, an *m-by-1 matrix* is called a **column vector**:
 
-![Column Vector](column_vector.png "Column Vector")
+![Column Vector](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/column_vector.png "Column Vector")
 
 A matrix where the number of rows equals the number of columns, an *n-by-n matrix*, is called a **square matrix**.
 
@@ -43,7 +43,7 @@ We can extend the idea of addition to matrices. Two matrices are added together 
 
 Let's take the addition of matrices **A** and **B** as an example:  
 
-![Matrix Addition](matrix_addition.png "Matrix Addition")  
+![Matrix Addition](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_addition.png "Matrix Addition")  
 
 
 It is important to note the following properties for matrix addition:
@@ -61,7 +61,7 @@ There are two forms of matrix multiplication
 
 In order to multiply matrix **A** by a scalar *k* (remember, a scalar is just a number) one simply multiplies each element of the matrix by the number *k*:
 
-![Scalar Multiplication](scalar_multiplication.png "Scalar Multiplication")
+![Scalar Multiplication](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/scalar_multiplication.png "Scalar Multiplication")
 
 The following properties hold for scalar multiplication:
 * Scalar multiplication is distributive for scalars: (*k* + *q*)**A** = *k***A** + *q***A**
@@ -73,19 +73,19 @@ First, a very important rule:
 
 This operation will produce a matrix (call it **C**) with the same number of rows as matrix A and the same number of columns as matrix **B**. For example, if matrix **A** is a *m-by-3* matrix, **B** must be a *3-by-n* matrix and this will generate an *m-by-n* matrix. Carrying out the matrix multiplication **C** = **A** **B** is done by the following formula:
 
-![Elements of Matrix Multiplication](matrix_multiplication_elements.png "Elements of Matrix Multiplication")
+![Elements of Matrix Multiplication](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_multiplication_elements.png "Elements of Matrix Multiplication")
 
 It is actually easier to see how this works when you consider the following example:
 
-![Matrix Multiplication](matrix_multiplication_symbolic.png "Matrix Multiplication")
+![Matrix Multiplication](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_multiplication_symbolic.png "Matrix Multiplication")
 
 Let's do this with some numbers:  
 
-![Matrix Multiplication](matrix_multiplication_numeric.png "Matrix Multiplication")
+![Matrix Multiplication](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_multiplication_numeric.png "Matrix Multiplication")
 
-![Matrix Multiplication](matrix_multiplication_example.png "Matrix Multiplication")
+![Matrix Multiplication](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_multiplication_example.png "Matrix Multiplication")
 
-As you can see, matrix multiplication is tedious and impractical to perform manually, so we require the use of a computer. Later on in this article, we will see how this operation is done in Python using the NumPy library. 
+As you can see, matrix multiplication is tedious and impractical to perform manually, therefore we require the use of a computer. Later on in this article we will see how this operation is done in Python using the NumPy library. 
 
 Matrix multiplication has the following properties:
 * Matrix multiplication is associative: (**A** **B**) **C** = **A** (**B** **C**)
@@ -94,7 +94,11 @@ Matrix multiplication has the following properties:
 
 There exists a special kind of square matrix knows as the **identity matrix**. This is a square matrix that contains ones on the main diagonal and zeros everywhere else. Since an identity matrix is necessarily sqaure (*n-by-n*), we need only one number (*n*) to specify its dimensions. We denote a general identity matrix by **I** and an *n-by-n* identity matrix as **I**<sub>**n**</sub>. It looks like this:
 
-![Identity Matrix](general_id_matrix.png "Identity Matrix")
+![Identity Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/general_id_matrix.png "Identity Matrix")
+
+A *3-by-3* identity matrix:
+
+![Identity Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/identity_matrix_3.png "Identity Matrix")
 
 Multiplication by an identity matrix yields the original matrix and this is one of the few times where matrix multplication is commutative!
 * **A** **I** = **I** **A** = **A**
@@ -126,7 +130,7 @@ Creating a 2D matrix:
 A = np.array([[1,2,3],[4,5,6],[7,8,9]])
 ```
 
-![Matrix](matrix_A.png "Matrix")  
+![Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_A.png "Matrix")  
 Note that a 2D matrix is simply represented as an array that contains other arrays as elements.
 
 Accessing the element at row *i* and column *j* is done by writing `A[i][j]`. However please keep in mind that while in mathematics counting starts at `1`, in computer science counting starts at `0`. Therefore the first element in matrix **A** is at `A[0][0]` *not* `A[1][1]`
@@ -192,7 +196,7 @@ x + 2y - z = -1
 
 We can first break this down to look like this:
 
-![Equation 1](equation1.png "Equation 1")
+![Equation 1](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/equation1.png "Equation 1")
 
 This system of equations can be elegantly represented using a matrix:
 
@@ -202,19 +206,19 @@ Systems of linear equations are written in the form **A** **x** = **b**.
 
 In this case:
 
-![A](A_matrix_linear_equations.png "A")
+![A](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/A_matrix_linear_equations.png "A")
 
-![x](x_vector.png "x")
+![x](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/x_vector.png "x")
 
-![b](b_vector.png "b")
+![b](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/b_vector.png "b")
 
 To solve this, we first generate the inverse matrix **A**<sup>-1</sup> and then multiply both sides of the equation, *on the left*, by **A**<sup>-1</sup>. Remember, matrix multiplication is **not** commutative.
 
-![Ax=b](eq1.png "Ax=b")
+![Ax=b](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/eq1.png "Ax=b")
 
-![Ax=b](eq2.png "Ax=b")
+![Ax=b](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/eq2.png "Ax=b")
 
-![Ax=b](eq3.png "Ax=b")
+![Ax=b](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/eq3.png "Ax=b")
 
 Let's solve this in Python:
 ```python
@@ -240,31 +244,31 @@ Another common application of matrix algebra is in the cyber security domain. Da
 
 In order to see how this works, we will first define the encryption matrix **E** which is a square matrix consisting of random numbers and the corresponding decryption matrix **D** which is simply the inverse of **E**. Using **E** and **D** to encrypt and decrypt something takes advantage of the property **D** **E** = **I**. To encrypt a matrix **x**, we generate matrix **y** by left-multiplying **E**. To recover the original matrix **x**, we left-multiply **y** by **D**.
 
-![Decryption](y_matrix.png "Decryption")  
-![Encryption](x_matrix.png "Encryption")
+![Decryption](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/y_matrix.png "Decryption")  
+![Encryption](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/x_matrix.png "Encryption")
 
 Suppose we wish to encrypt the string "*hello world*". We must first define encryption matrix **E** and decryption matrix **D**:
 
-![Encryption Key](encryption_key.png "Encryption Key")  
-![Decryption Key](decryption_key.png "Decryption Key")
+![Encryption Key](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/encryption_key.png "Encryption Key")  
+![Decryption Key](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/decryption_key.png "Decryption Key")
 
 Note that the matrix can be of any size, as long as it is square.
 
 Remember that in order to multiply two matrices, the column-dimension of the left matrix must match the row-dimension of the right matrix. Therefore in order to multiply a matrix by the *2-by-2* matrix **E**, we need a *2-by-n* matrix. Let's first convert the string into a row-vector
 
-![Hello World](string_row_vector.png "Hello World")
+![Hello World](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/string_row_vector.png "Hello World")
 
 Since the string *hello world* contains eleven characters (including the space) and we need a *2-by-n* matrix, we need to break the string down into two rows and distribute the characters as evenly as possible. We pad with 0's if we need more characters.
 
-![Hello World](hello_matrix.png "Hello World")
+![Hello World](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/hello_matrix.png "Hello World")
 
 We can convert a string into a row-vector of numbers where each number corresponds to the [unicode](https://home.unicode.org/) value of the character. To obtain the unicode value of a character ('a' for example) in python, we use `ord('a')`. To convert from unicode (number *x* for example) to character, we use `chr(x)`.
 
-![Hello World](hello_number_matrix.png "Hello World")
+![Hello World](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/hello_number_matrix.png "Hello World")
 
 After encrypting it with **E**, we get:
 
-![Encrypted Matrix](encrypted_matrix.png "Encrypted Matrix")
+![Encrypted Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/encrypted_matrix.png "Encrypted Matrix")
 
 Which corresponds to unusual characters if it was converted from unicode to character.
 
