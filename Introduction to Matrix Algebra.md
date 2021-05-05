@@ -232,7 +232,7 @@ Please note that the solution to a linear system only works if the equations are
 4x + 12y +2z = 14   
 5x + 7y - 4z = 9
 
-will produce non-sense values as the equations in this system or not linearly independent; the second equation is two-times the first. Determining whether or not a system is linearly independent is outside the scope of this lesson. For now, we will assume they are.
+will produce non-sense values as the equations in this system are not linearly independent; the second equation is two-times the first. Determining whether or not a system is linearly independent is outside the scope of this lesson. For now, we will assume they are.
 
 ## Applications of Matrices: Data Encryption
 
