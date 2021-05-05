@@ -236,14 +236,14 @@ will produce non-sense values as the equations in this system or not linearly in
 
 ## Applications of Matrices: Data Encryption
 
-Another common application of matrix algebra is in the cyber security domain where data can be structured in a matrix and encryption algorithms are used to generate a new matrix with encrypted data. After the data are transferred, decryption algorithms are used to recover the original data from the encrypted matrix. To show how this is done, we present an encryption technique that is based on matrix multiplication to generate an encrypted matrix. While this algorithm is primitive and is not suited for real-world applications, it does show the importance of matrices in the cyber security field.
+Another common application of matrix algebra is in the cyber security domain. Data can be structured in a matrix and encryption algorithms are used to generate a new matrix with encrypted data. After the data are transferred, decryption algorithms are used to recover the original data from the encrypted matrix. To show how this is done, we present an encryption technique that is based on matrix multiplication to encrypt data. While this algorithm is primitive and is not suited for real-world applications, it does show the importance of matrices in the cyber security field.
 
-In order to see how this works, we will first define the encryption matrix **E** which is a square matrix consisting of random numbers and the corresponding decryption matrix **D** which is simply the inverse of **E**. Using **E** to encrypt something and **D** to decrypt takes advantage of the property **D** **E** = **I**. To encrypt a matrix **x**, we generate matrix **y** by left-multiplying **E**. To recover the original matrix **x** we left-multiply **y** by **D**.
+In order to see how this works, we will first define the encryption matrix **E** which is a square matrix consisting of random numbers and the corresponding decryption matrix **D** which is simply the inverse of **E**. Using **E** and **D** to encrypt and decrypt something takes advantage of the property **D** **E** = **I**. To encrypt a matrix **x**, we generate matrix **y** by left-multiplying **E**. To recover the original matrix **x**, we left-multiply **y** by **D**.
 
 ![Decryption](y_matrix.png "Decryption")  
 ![Encryption](x_matrix.png "Encryption")
 
-Suppose we wish to encrypt the string "*hello world*". We must first define **E** and **D**:
+Suppose we wish to encrypt the string "*hello world*". We must first define encryption matrix **E** and decryption matrix **D**:
 
 ![Encryption Key](encryption_key.png "Encryption Key")  
 ![Decryption Key](decryption_key.png "Decryption Key")
@@ -254,11 +254,11 @@ Remember that in order to multiply two matrices, the column-dimension of the lef
 
 ![Hello World](string_row_vector.png "Hello World")
 
-Since the string *hello world* contains eleven characters (including the space) and we need a *2-by-n* matrix, so we break the string down into two rows and distribute the charachters as evenly as possible. We pad with 0's if we need more characters.
+Since the string *hello world* contains eleven characters (including the space) and we need a *2-by-n* matrix, we need to break the string down into two rows and distribute the characters as evenly as possible. We pad with 0's if we need more characters.
 
 ![Hello World](hello_matrix.png "Hello World")
 
-We can convert a string into a row-vector of numbers where each number corresponds to the [unicode](https://home.unicode.org/) value of the character. To obtain the unicode value of a character ('a' for example) in python use `ord('a')`. To convert from unicode (number *x* for example) to character use `chr(x)`.
+We can convert a string into a row-vector of numbers where each number corresponds to the [unicode](https://home.unicode.org/) value of the character. To obtain the unicode value of a character ('a' for example) in python, we use `ord('a')`. To convert from unicode (number *x* for example) to character, we use `chr(x)`.
 
 ![Hello World](hello_number_matrix.png "Hello World")
 
@@ -266,11 +266,11 @@ After encrypting it with **E**, we get:
 
 ![Encrypted Matrix](encrypted_matrix.png "Encrypted Matrix")
 
-Which corresponds to unusual characters if converted from unicode to character.
+Which corresponds to unusual characters if it was converted from unicode to character.
 
 Multiplying **y** with **D**, will give back the original **x** matrix.
 
-Lets do this in Python.
+Lets do this exercise in Python.
 
 ```python
 import numpy as np
@@ -295,7 +295,7 @@ This outputs:
 '''
 ```
 
-You should notice that the output matrix **q** matches the original matrix **x**. Since the decryption matrix has decimals in it, the output will be generated as floating point values as opposed to integers. If you notice, the last value is a number on the order of 10<sup>-14</sup> which is effectively 0. In order to convert **q** back to characters, we have to use the `chr` command. Unfortunately, it only accepts integer values, therefore we must cast the elements from floating point to integer. Let's convert element `q[0][0]` as an example, we convert it to an integer by surrounding it with `int` like this `int(q[0][0])`. There is a problem here however, because if you print `q[0][0]` you will get the value `103.99999997` which is effectively `104` but if you cast it directly, Python will truncate the decimal part, and incorrectly return `103`. To fix this, we simply round the value to the nearest whole number before we convert it by using `round`. Putting all this together, to recover a character we get `chr(int(round(q[0][0])))`. Let's extend the code above to convert all the number in **q** back to the original characters and place them in a list for printing.
+You should notice that the output matrix **q** matches the original matrix **x**. Since the decryption matrix has decimals in it, the output will be generated as floating point values as opposed to integers. If you notice, the last value is a number on the order of 10<sup>-14</sup> which is effectively 0. In order to convert **q** back to characters, we have to use the `chr` command. Unfortunately, it only accepts integer values, therefore we must cast the elements from floating point to integer. Let's convert element `q[0][0]` as an example, we convert it to an integer by surrounding it with `int` like this `int(q[0][0])`. There is a problem here however, because if you print `q[0][0]` you will get the value `103.99999997` which is effectively `104` but if you cast it directly, Python will truncate the decimal part, and incorrectly return `103`. To fix this, we simply round the value to the nearest whole number before we convert it. This is done by using `round`. Combining everything to recover a character, we get this rather long line of code: `chr(int(round(q[0][0])))`. Let's extend the code above to convert all the numbers in **q** back to the original characters, and place them in a list for printing.
 
 
 ```python
@@ -321,7 +321,23 @@ This outputs:
 '''
 
 
+l = []
+
+for i in range(0, 2):
+    for j in range (0, 6):
+        if(round(q[i][j]) == 0):
+            break
+        l.append(chr(int(round(q[i][j]))))
+print(l)
+
+'''
+This outputs:
+
+['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
+'''
 ```
+
+So here we conclude a basic example on how matrices can be used to encrypt and decrypt data.
 
 
 
