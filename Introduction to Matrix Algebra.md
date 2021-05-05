@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A **matrix** is an ordered collection of numbers that facilitates mathematical operations that are necessary in a number of fields in science, mathematics, and engineering. Common fields in which **matrices** (plural of matrix) and their applications are prevalent are: solving systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, matrices are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. Computer scientists and software engineers use matrices in fields like game development and cyber security. These are just a few applications. Before we begin the study of a matrix, we must first define some important terms.
+A **matrix** is an ordered collection of numbers that facilitates mathematical operations that are necessary in a number of fields in science, mathematics, and engineering. A common use of a matrix and its applications is the solution of systems of linear equations in electrical, mechanical, and chemical engineering. In control and aerospace engineering, **matrices** (plural of matrix) are used to describe the state of a physical system and to study its motion in time and space. In data science, matrices are used to store and manipulate large sets of data. Computer scientists and software engineers use matrices in fields like game development and cyber security. These are just a few of the many applications of matrix algebra. Before we begin the study of a matrix, we must first define some important terms.
 
 ## Matrix
 
@@ -133,7 +133,7 @@ A = np.array([[1,2,3],[4,5,6],[7,8,9]])
 ![Matrix](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/matrix_A.png "Matrix")  
 Note that a 2D matrix is simply represented as an array that contains other arrays as elements.
 
-Accessing the element at row *i* and column *j* is done by writing `A[i][j]`. However please keep in mind that while in mathematics counting starts at `1`, in computer science counting starts at `0`. Therefore the first element in matrix **A** is `A[0][0]` *not* `A[1][1]`
+Accessing the element at row *i* and column *j* is done by writing `A[i][j]`. However please keep in mind that while in mathematics counting starts at `1`, in computer science counting starts at `0`; therefore the first element in matrix **A** is `A[0][0]` *not* `A[1][1]`
 
 Adding/subtracting two matrices uses the same syntax as adding two variables: 
 
@@ -256,7 +256,7 @@ Suppose we wish to encrypt the string "*hello world*". We must first define encr
 
 Note that the matrix can be of any size, as long as it is square.
 
-Remember that in order to multiply two matrices, the column-dimension of the left matrix must match the row-dimension of the right matrix. Therefore in order to multiply a matrix by the *2-by-2* matrix **E**, we need a *2-by-n* matrix. Let's first convert the string into a row-vector
+Remember that in order to multiply two matrices, the column dimension of the left matrix must match the row dimension of the right matrix. Therefore in order to multiply a matrix by the *2-by-2* matrix **E**, we need a *2-by-n* matrix. Let's first convert the string into a row vector
 
 ![Hello World](https://raw.githubusercontent.com/HishamT/Intro-to-Matrix-Algebra/main/string_row_vector.png "Hello World")
 
@@ -301,7 +301,7 @@ This outputs:
 '''
 ```
 
-You should notice that the output matrix **q** matches the original matrix **x**. Since the decryption matrix has decimals in it, the output will be generated as floating point values as opposed to integers. If you notice, the last value is a number on the order of 10<sup>-14</sup> which is effectively 0. In order to convert **q** back to characters, we have to use the `chr` command. Unfortunately, it only accepts integer values, therefore we must cast the elements from floating point to integer. Let's convert element `q[0][0]` as an example, we convert it to an integer by surrounding it with `int` like this `int(q[0][0])`. There is a problem here however, because if you print `q[0][0]` you will get the value `103.99999997` which is effectively `104` but if you cast it directly, Python will truncate the decimal part, and incorrectly return `103`. To fix this, we simply round the value to the nearest whole number before we convert it. This is done by using `round`. Combining everything to recover a character, we get this rather long line of code: `chr(int(round(q[0][0])))`. Let's extend the code above to convert all the numbers in **q** back to the original characters, and place them in a list for printing.
+You should notice that the output matrix **q** matches the original matrix **x**. Since the decryption matrix has decimals in it, the output will be generated as floating point values as opposed to integers. If you notice, the last value is a number on the order of 10<sup>-14</sup> which is effectively 0. In order to convert **q** back to characters, we have to use the `chr` command. Unfortunately, it only accepts integer values, therefore we must cast the elements from floating point to integer. Let's convert element `q[0][0]` as an example, we convert it to an integer by surrounding it with `int` like this: `int(q[0][0])`. There is a problem here however, because if you print `q[0][0]` you will get the value `103.99999997` which is effectively `104` but if you cast it directly, Python will truncate the decimal part and incorrectly return `103`. To fix this, we simply round the value to the nearest whole number before we convert it. This is done by using `round`. Combining everything to recover a character, we get this rather long line of code: `chr(int(round(q[0][0])))`. Let's extend the code above to convert all the numbers in **q** back to the original characters and place them in a list for printing.
 
 
 ```python
